@@ -1,0 +1,27 @@
+{
+  "name": "react-hangman",
+  "version": "0.1.0",
+  "description": "React version of Superhero Hangman",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CourtneyDM/react-hangman.git"
+  },
+  "keywords": [
+    "ReactJS",
+    "Hangman",
+    "Superhero"
+  ],
+  "author": "Courtney Montgomery",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/CourtneyDM/react-hangman/issues"
+  },
+  "homepage": "https://github.com/CourtneyDM/react-hangman#readme",
+  "dependencies": {
+    "eslint": "^5.12.0"
+  }
+}
