@@ -7,12 +7,56 @@ import Card from "./components/Card";
 import Button from "./components/Button";
 
 class App extends Component {
+	constructor(props) {
+		super(props);
+
+		this.state = {
+			heroAlias: null,
+			currentLetter: null,
+			lettersGuessed: [],
+			numOfGuesses: null,
+			numOfWins: null,
+			tagline: null
+		};
+
+		this.displayGameInstructions = this.displayGameInstructions.bind(this);
+		this.displaySuperhero = this.displaySuperhero.bind(this);
+		this.resetGame = this.resetGame.bind(this);
+		this.resetGameStatistics = this.resetGameStatistics.bind(this);
+	}
+
+	componentDidMount() {
+		// TODO: Randomly get a tagline and superhero information (setup data using JSON server or external file)
+		// TODO: Display the dashes on the screen
+		// TODO: Work on business logic: registering what key is currently pressed, what keys have been guessed (to store in an array), subtract incorrect guesses, restart the game, clearing the stats, showing the instructions, showing the results,
+		this.setState({
+			currentLetter: "n/a",
+			numOfGuesses: 10,
+			numOfWins: 0
+		});
+	}
+
+	displayGameInstructions() {
+		// A modal will appear here that will display the instructions to the screen.
+		alert("These are the instructions");
+	}
+
+	displaySuperhero() {
+		// A modal will appear that will display the superhero
+		alert("This button will give the answer.");
+	}
+
+	resetGame() {
+		// This function will restart the game without clearing the statistics
+		console.log("Restarting game...");
+	}
+
+	resetGameStatistics() {
+		// This function will reset the game statistics
+		console.log("Clearing statistics...");
+	}
+
 	render() {
-		// let current = null,
-		// 	letter = "",
-		// 	guess = null,
-		// 	turns = null,
-		// 	wins = null;
 		return (
 			<Wrapper className="main">
 				<div className="row">
@@ -24,31 +68,47 @@ class App extends Component {
 								title="Here is where the hint will go"
 								cardText="Here is where the dashes will go"
 							>
-								<Button type="button" className="btn btn-info">
-									Instructions
-								</Button>
-								<Button type="button" className="btn btn-info">
-									Reveal
-								</Button>
-							</Card>
-						</div>
-					</div>
-					<div className="col-md-5">
-						{/* Game Statistics Card */}
-						<div className="game-stats">
-							<Card header="Game Statistics">
-								<p>Statistics will go here</p>
 								<Button
 									type="button"
-									className="btn btn-success"
+									className="btn btn-info"
+									onClick={this.displayGameInstructions}
 								>
-									Restart
+									Instructions
+								</Button>
+								<Button
+									type="button"
+									className="btn btn-info"
+									onClick={this.displaySuperhero}
+								>
+									Reveal
+								</Button>
+								<div>
+									Current Letter: {this.state.currentLetter}
+								</div>
+								<div>
+									Guesses Left: {this.state.numOfGuesses}
+								</div>
+								<div>Total Wins: {this.state.numOfWins}</div>
+								<Button
+									type="button"
+									className="btn btn-primary"
+									onClick={this.resetGame}
+								>
+									Restart Game
+								</Button>
+								<Button
+									type="button"
+									className="btn btn-warning"
+									onClick={this.resetGameStatistics}
+								>
+									Reset Statistics
 								</Button>
 								<Button
 									type="button"
 									className="btn btn-danger"
+									onClick={() => alert("Exiting...")}
 								>
-									Exit
+									Exit Game
 								</Button>
 							</Card>
 						</div>
