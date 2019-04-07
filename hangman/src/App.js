@@ -2,9 +2,9 @@ import "bootstrap/dist/css/bootstrap.css";
 import React, { Component } from "react";
 import "./App.css";
 
-import Wrapper from "./components/Wrapper";
-import Card from "./components/Card";
-import Button from "./components/Button";
+import Wrapper from "./Components/Wrapper";
+import Card from "./Components/Card";
+import Button from "./Components/Button";
 
 class App extends Component {
 	constructor(props) {
